@@ -53,7 +53,9 @@ class TeacherController extends Controller
 
         $ExistSubjectMarks = Student::where('name',$name)->where('subject',$subject)->get();
         if(count($ExistSubjectMarks)>0){
-
+            $exist_std = Student::find($ExistSubjectMarks[0]->id);
+            $exist_std->marks = $marks;
+            $exist_std->save();
             return response()->json(['msg'=>'One record updated!','status'=>true],200);
         }
         else{

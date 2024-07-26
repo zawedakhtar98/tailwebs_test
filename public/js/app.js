@@ -62,16 +62,18 @@ function togglePasswordVisibility() {
             if(data.status){
                 document.getElementById('errorMsg').innerHTML="<div class='alert alert-success'>"+data.msg+"</div>";
                 setTimeout(function() {
-                    window.location.href= "{{url('student-list')}}";
+                    window.location.href= "http://127.0.0.1:8000/student-list";
                 },3000)
             }
             else{
+                
                 document.getElementById('errorMsg').innerHTML="<div class='alert alert-danger'>"+data.msg+"</div>";
                 
             }
         })
         .catch(error => {
-            alert('An error occurred: ' + error.message);
+            alert('An error occurred:');
+            // alert('An error occurred: ' + error.message);
         });
     });
 });
